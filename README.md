@@ -1,6 +1,6 @@
 # CodepenFiLL
 
-If you see the white screen, clear your localstorage by the fundtion `localStorage.clear()`
+If you see the white screen, clear your localStorage by the function `localStorage.clear()`
 
 # Getting Started with Create React App
 
