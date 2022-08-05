@@ -1,0 +1,36 @@
+body {
+	margin: 0;
+}
+
+nav {
+	display: flex;
+	align-items:center;
+	margin-bottom: 30px;
+	padding: 5px;
+	background-color:lightcoral;
+}
+
+.heared_user button {
+	position: relative;
+	display: inline-block;
+	width: 6.5em;
+	height: 2.5em;
+	cursor: pointer;
+	margin-top: 7px;
+	margin-bottom: 5px;
+	vertical-align: middle;
+	text-align: center;
+	border: 1px solid;
+	border-radius: 5px;
+}
+
+.heared_user button:hover {
+	background: linear-gradient(#571199, #9285b4);
+}
+
+.avatar {
+	margin-top: 25px;
+	margin-right: 10px;
+	width: 100px;
+	height: 100px;
+}

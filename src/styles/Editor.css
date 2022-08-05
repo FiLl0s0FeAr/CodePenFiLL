@@ -1,0 +1,15 @@
+.all_editors {
+	display: inline-block;
+	width: 450px;
+	padding-left: 10px;
+	color: rgb(122, 9, 9);
+}
+
+select {
+	margin: 5px;
+	font-size: 15px;
+}
+
+.editor {
+	margin-top: 5px;
+}
