@@ -1,3 +1,7 @@
+# CodepenFiLL
+
+If you see the white screen, clear your localstorage by the fundtion `localStorage.clear()`
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
