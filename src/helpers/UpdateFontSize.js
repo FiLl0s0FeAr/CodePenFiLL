@@ -7,7 +7,7 @@ const DEFAULT_FRONTS = {
 	40: 40,
 };
 
-export const SelectFontSize = ({ listObj = DEFAULT_FRONTS, onChange, value }) => {
+export const UpdateFontSize = ({ listObj = DEFAULT_FRONTS, onChange, value }) => {
 	return (
 		<select value={value} onChange={e => onChange(e.target.value)}>
 			{Object.entries(listObj).map(([value, text]) => (
