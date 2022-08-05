@@ -1,0 +1,16 @@
+#body {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 90vh;
+}
+
+.content {
+	padding: 40px;
+	box-sizing: border-box;
+	color: #c22c2c;
+	font-size: 20px;
+	margin-bottom: 200px;
+}
