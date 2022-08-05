@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { UpdateTheme } from "helpers/UpdateTheme";
-import { SelectFontSize } from "helpers/UpdateFontSize";
+import { UpdateFontSize } from "helpers/UpdateFontSize";
 
 import "../styles/Snippet.css";
 import { Editor } from "./Editor";
@@ -69,7 +69,7 @@ export const Snippet = ({ onSave }) => {
 				<br />
 
 				{"FontSize: "}
-				<SelectFontSize onChange={setFont} value={font} />
+				<UpdateFontSize onChange={setFont} value={font} />
 				<br />
 
 				<button className='button_add_snippet' onClick={() => setEditors([...editors, { type: "", name: "", text: "" }])}>
