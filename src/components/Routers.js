@@ -25,12 +25,12 @@ const Routs = ({ token }) => {
 			<Router history={history}>
 				{token && (
 					<Switch>
-						<Redirect from='/login' to='/snippet' />
-						<Redirect from='/reg' to='/snippet' />
-						<Route exact path='/snippet' component={WorkPage} />
+						<Redirect from='/login' to='/new-snippet' />
+						<Redirect from='/reg' to='/new-snippet' />
+						<Route exact path='/new-snippet' component={WorkPage} />
 						<Route path='/snippets' component={ConnectedSnippets} />
 						<Route path='/search-snippet/:id' component={ConnectedSearchSnippet} />
-						<Route path='/my-snippet/:id' component={ConnectedSnippet} />
+						<Route path='/snippet/:id' component={ConnectedSnippet} />
 						<Route path='/search' component={ConnectSearch} />
 					</Switch>
 				)}

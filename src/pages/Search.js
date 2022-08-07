@@ -10,7 +10,7 @@ const Search = ({ onSearch, snippets }) => {
 	const [request, setRequest] = useState("");
 	return (
 		<>
-			<Link to='/snippet'>
+			<Link to='/new-snippet'>
 				<div>
 					<button>Back to snippet</button>
 				</div>
