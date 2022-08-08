@@ -6,7 +6,7 @@ const Snippets = ({ snippets }) => {
 		<div>
 			<div style={{ margin: 10 }}>
 				<div>
-					<Link to='/snippet'>
+					<Link to='/new-snippet'>
 						<button style={{ marginTop: 5 }}>
 							New project
 						</button>
@@ -22,9 +22,9 @@ const Snippets = ({ snippets }) => {
 						<div>
 							<p>{`Name: ${snippet.title}` || "Snippet without name"}</p>
 							<p>{`Description: ${snippet.description}` || ""}</p>
-							<img src={`https://www.datocms-assets.com/45470/1631110818-logo-react-js.png?fm=webp`} alt='code'></img>
+							<img src={`${process.env.PUBLIC_URL}/img/defaultProject.jpg`} alt='code'></img>
 							<div>
-								<Link to={"/my-snippet/" + snippet._id}>
+								<Link to={"/snippet/" + snippet._id}>
 									<button>Open project</button>
 								</Link>
 							</div>

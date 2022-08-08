@@ -5,7 +5,7 @@ import "../styles/Header.css";
 
 function Avatar({ link }) {
 	return (
-		<img src={link ? "http://localhost:3000/" + link : `https://cdnb.artstation.com/p/assets/images/images/013/085/927/large/furio-tedeschi-mechsmoke.jpg?1537981733`} className='avatar' alt='avatar'></img>
+		<img src={link ? "http://localhost:3000/" + link : `${process.env.PUBLIC_URL}/img/defaultAvatar.jpg`} className='avatar' alt='avatar'></img>
 	);
 }
 

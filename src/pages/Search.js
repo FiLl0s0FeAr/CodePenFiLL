@@ -10,7 +10,7 @@ const Search = ({ onSearch, snippets }) => {
 	const [request, setRequest] = useState("");
 	return (
 		<>
-			<Link to='/snippet'>
+			<Link to='/new-snippet'>
 				<div>
 					<button>Back to snippet</button>
 				</div>
@@ -34,7 +34,7 @@ const Search = ({ onSearch, snippets }) => {
 							<p>{`Name: ${snippet.title}` || "Snippet without name"}</p>
 							<p>{`Description: ${snippet.description}` || ""}</p>
 							<p>{`Owner: ${snippet.owner.login}`}</p>
-							<img src={`https://www.datocms-assets.com/45470/1631110818-logo-react-js.png?fm=webp`} alt='code'></img>
+							<img src={`${process.env.PUBLIC_URL}/img/defaultProject.jpg`} alt='code'></img>
 							<div>
 								<Link to={"/search-snippet/" + snippet._id}>
 									<button>Open snippet</button>
