@@ -1,12 +1,9 @@
-import { ConnectAvatarUpload } from "pages/AvatarUpload";
-
 import "../styles/Header.css";
 import ConnectedNickName from "./HeaderFunctions";
 
 const Header = () => {
 	return (
-		<nav className='header'>
-			<ConnectAvatarUpload />
+		<nav>
 			<ConnectedNickName />
 		</nav>
 	);
