@@ -5,10 +5,9 @@ import Header from "../components/Header";
 import { actGetSnipperById } from "store/actions/search/actGetSnipperById";
 import { actAddSnippet } from "store/actions/add/actAddSnippet";
 import { Editor } from "components/Editor";
-import "../styles/Snippet.css";
 
-const MySnippet = ({onSave, getSnippet, match: {params: { id },}, titleText, descriptionText, filesArr,}) => {
-	useEffect(() => {getSnippet(id);}, [id, getSnippet]);
+const MySnippet = ({ onSave, getSnippet, match: { params: { id }, }, titleText, descriptionText, filesArr, }) => {
+	useEffect(() => { getSnippet(id); }, [id, getSnippet]);
 
 	const [files, setFiles] = useState([]);
 	const [title, setTitle] = useState("");
@@ -22,9 +21,9 @@ const MySnippet = ({onSave, getSnippet, match: {params: { id },}, titleText, des
 
 	const [srcDoc, setSrcDoc] = useState("");
 
-	const html = files?.filter(e => {return e?.type === "html";})[0]?.text;
-	const css = files?.filter(e => {return e?.type === "css";})[0]?.text;
-	const javascript = files?.filter(e => { return e?.type === "js";})[0]?.text;
+	const html = files?.filter(e => { return e?.type === "html"; })[0]?.text;
+	const css = files?.filter(e => { return e?.type === "css"; })[0]?.text;
+	const javascript = files?.filter(e => { return e?.type === "js"; })[0]?.text;
 
 	console.log(javascript);
 	useEffect(() => {
@@ -44,18 +43,17 @@ const MySnippet = ({onSave, getSnippet, match: {params: { id },}, titleText, des
 	return (
 		<>
 			<Header />
-			<div className='text'>Set Snippet name:   
-				<input className='input_snippet_name' placeholder='Snippet name' value={title} onChange={e => setTitle(e.target.value)}/>
+			<div class="mb-3">
+				<label for="exampleFormControlInput1" class="form-label">Snippet name</label>
+				<input type="email" class="form-control" placeholder='Default Snippet Name' value={title} onChange={e => setTitle(e.target.value)} />
 			</div>
-
-			<div className='text'>Description:
-				<textarea className='textarea_snippet_description' placeholder='Description' value={description} onChange={e => setDescription(e.target.value)}/>
+			<div class="mb-3">
+				<label for="exampleFormControlTextarea1" class="form-label">Description</label>
+				<textarea class="form-control" placeholder='Default Description' value={description} onChange={e => setDescription(e.target.value)} rows="1"></textarea>
 			</div>
-
-			<button className='button_snippet_creation' onClick={() => onSave(title, description, files)}>
-				Create snippet
-			</button>
-
+			<div class="col-12">
+				<button class="btn btn-primary" type="submit" onClick={() => onSave(title, description, files)}>Update snippet</button>
+			</div>
 			<br />
 			{files?.map((data, index) => {
 				return (
@@ -82,7 +80,7 @@ const ConnectedSnippet = connect(
 		titleText: state?.promise?.findSnippetById?.payload?.data?.SnippetFind?.[0]?.title,
 		descriptionText: state?.promise?.findSnippetById?.payload?.data?.SnippetFind?.[0]?.description,
 		filesArr: state?.promise?.findSnippetById?.payload?.data?.SnippetFind?.[0]?.files,
-	}),	{ getSnippet: actGetSnipperById, onSave: actAddSnippet },)
+	}), { getSnippet: actGetSnipperById, onSave: actAddSnippet })
 	(MySnippet);
 
 export default ConnectedSnippet;

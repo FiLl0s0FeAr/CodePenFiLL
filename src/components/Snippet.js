@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { UpdateTheme } from "helpers/UpdateTheme";
 import { UpdateFontSize } from "helpers/UpdateFontSize";
 
-import "../styles/Snippet.css";
 import { Editor } from "./Editor";
 
 const baseSnippetParameters = [
@@ -51,18 +50,7 @@ export const Snippet = ({ onSave }) => {
 	return (
 		<>
 			<div className='styles'>
-				<div className='text'>Set Snippet name:   
-					<input className='input_snippet_name' placeholder='Snippet name' value={title} onChange={e => setTitle(e.target.value)}/>
-				</div>
 
-				<div className='text'>Description:
-					<textarea className='textarea_snippet_description' placeholder='Description' value={description} onChange={e => setDescription(e.target.value)}/>
-				</div>
-
-				<button className='button_snippet_creation' onClick={() => onSave(title, description, editors)}>
-					Create snippet
-				</button>
-				
 				<br />
 				{"Theme: "}
 				<UpdateTheme onChange={setTheme} value={theme} />
@@ -72,11 +60,11 @@ export const Snippet = ({ onSave }) => {
 				<UpdateFontSize onChange={setFont} value={font} />
 				<br />
 
-				<button className='button_add_snippet' onClick={() => setEditors([...editors, { type: "", name: "", text: "" }])}>
+				<button class="btn btn-outline-secondary btn-lg px-4" onClick={() => setEditors([...editors, { type: "", name: "", text: "" }])}>
 					+
 				</button>
 
-				<button className='button_add_snippet' onClick={() => { editors.pop();	setEditors([...editors]);}}>
+				<button class="btn btn-outline-secondary btn-lg px-4" onClick={() => { editors.pop(); setEditors([...editors]); }}>
 					-
 				</button>
 			</div>
@@ -99,6 +87,18 @@ export const Snippet = ({ onSave }) => {
 
 			<div className='pane'>
 				<iframe srcDoc={srcDoc} title='output' sandbox='allow-scripts' frameBorder='0' width='100%' height='100%' />
+			</div>
+
+			<div class="mb-3">
+				<label for="exampleFormControlInput1" class="form-label">Set Snippet name</label>
+				<input type="email" class="form-control" placeholder='Snippet name' value={title} onChange={e => setTitle(e.target.value)} />
+			</div>
+			<div class="mb-3">
+				<label for="exampleFormControlTextarea1" class="form-label">Description</label>
+				<textarea class="form-control" rows="1" placeholder='Add Your Description' value={description} onChange={e => setDescription(e.target.value)}></textarea>
+			</div>
+			<div class="col-12">
+				<button class="btn btn-primary" type="submit" onClick={() => onSave(title, description, editors)}>Create snippet</button>
 			</div>
 		</>
 	);
