@@ -1,21 +1,12 @@
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
+import Header from "../components/Header";
+
 const Snippets = ({ snippets }) => {
 	return snippets ? (
 		<div>
-			<div style={{ margin: 10 }}>
-				<div>
-					<Link to='/new-snippet'>
-						<button style={{ marginTop: 5 }}>
-							New project
-						</button>
-					</Link>
-				</div>
-			</div>
-
-			<br />
-
+			<Header />
 			<div>
 				{snippets?.map(snippet => (
 					<div key={snippet._id}>

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 
 import { actGetSnipperById } from "store/actions/search/actGetSnipperById";
 import { Editor } from "components/Editor";
 import "../styles/Snippet.css";
+import Header from "../components/Header"
 
 const SeachSnippet = ({
 	getSnippet,
@@ -52,14 +52,8 @@ const SeachSnippet = ({
 	}, [html, css, javascript]);
 
 	return (
-		<div>
-			<div>
-				<Link to='/search'>
-					<button style={{ margin: 10, marginBottom: 50 }}>
-						Back to Search
-					</button>
-				</Link>
-			</div>
+		<>
+			<Header/>
 			<div>
 				<p className='text'>Snippet name: </p>
 					<input className='input_snippet_name' placeholder='Set snippet Name' value={title} onChange={e => setTitle(e.target.value)}/>
@@ -92,7 +86,7 @@ const SeachSnippet = ({
 					/>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
+import Header from "../components/Header";
 import { actSearch } from "store/actions/search/actSearch";
 
 import "../styles/Main.css";
@@ -10,11 +11,7 @@ const Search = ({ onSearch, snippets }) => {
 	const [request, setRequest] = useState("");
 	return (
 		<>
-			<Link to='/new-snippet'>
-				<div>
-					<button>Back to snippet</button>
-				</div>
-			</Link>
+			<Header />
 			<br />
 			<div>
 				<input value={request} onChange={e => setRequest(e.target.value)} type='search' placeholder='Name or description' aria-label='Search'/>

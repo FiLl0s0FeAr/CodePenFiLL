@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 
+import Header from "../components/Header";
 import { actGetSnipperById } from "store/actions/search/actGetSnipperById";
 import { actAddSnippet } from "store/actions/add/actAddSnippet";
 import { Editor } from "components/Editor";
@@ -43,13 +43,7 @@ const MySnippet = ({onSave, getSnippet, match: {params: { id },}, titleText, des
 
 	return (
 		<>
-			<div>
-				<Link to='/snippets'>
-					<button style={{ margin: 10, marginBottom: 50 }}>
-						Back to All Projects
-					</button>
-				</Link>
-			</div>
+			<Header />
 			<div className='text'>Set Snippet name:   
 				<input className='input_snippet_name' placeholder='Snippet name' value={title} onChange={e => setTitle(e.target.value)}/>
 			</div>
