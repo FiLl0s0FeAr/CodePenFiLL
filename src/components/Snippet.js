@@ -49,25 +49,24 @@ export const Snippet = ({ onSave }) => {
 
 	return (
 		<>
-			<div className='styles'>
 
-				<br />
-				{"Theme: "}
-				<UpdateTheme onChange={setTheme} value={theme} />
-				<br />
+			<br />
+			{"Theme: "}
+			<UpdateTheme onChange={setTheme} value={theme} />
+			<br />
 
-				{"FontSize: "}
-				<UpdateFontSize onChange={setFont} value={font} />
-				<br />
+			{"FontSize: "}
+			<UpdateFontSize onChange={setFont} value={font} />
+			<br />
 
-				<button class="btn btn-outline-secondary btn-lg px-4" onClick={() => setEditors([...editors, { type: "", name: "", text: "" }])}>
-					+
-				</button>
+			<button class="btn btn-outline-secondary btn-lg px-4" onClick={() => setEditors([...editors, { type: "", name: "", text: "" }])}>
+				+
+			</button>
 
-				<button class="btn btn-outline-secondary btn-lg px-4" onClick={() => { editors.pop(); setEditors([...editors]); }}>
-					-
-				</button>
-			</div>
+			<button class="btn btn-outline-secondary btn-lg px-4" onClick={() => { editors.pop(); setEditors([...editors]); }}>
+				-
+			</button>
+			<br />
 			{editors.map((data, index) => {
 				return (
 					<Editor
