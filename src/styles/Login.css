@@ -1,6 +1,7 @@
 .App {
-    background-color: rgb(242, 254, 255);
-  }
+    /* background-color: rgb(233, 253, 255); */
+    background-color: #f4faff;
+}
   
   .Auth-form-container {
     display: flex;
