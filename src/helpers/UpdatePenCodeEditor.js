@@ -1,7 +1,7 @@
 const DEFAULT_TYPES = {
 	html: "html",
 	css: "css",
-	javascript: "js",
+	javascript: "javascript",
 	java: "java",
 	python: "python",
 	xml: "xml",
