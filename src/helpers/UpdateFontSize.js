@@ -9,9 +9,9 @@ const DEFAULT_FRONTS = {
 
 export const UpdateFontSize = ({ listObj = DEFAULT_FRONTS, onChange, value }) => {
 	return (
-		<select value={value} onChange={e => onChange(e.target.value)}>
+		<select class="btn btn-primary dropdown-toggle dropdown-toggle-split" value={value} onChange={e => onChange(e.target.value)}>
 			{Object.entries(listObj).map(([value, text]) => (
-				<option value={value} key={value}>
+				<option class="dropdown-item" value={value} key={value}>
 					{text}
 				</option>
 			))}

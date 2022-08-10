@@ -1,32 +1,25 @@
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
+import Header from "../components/Header";
+
 const Snippets = ({ snippets }) => {
 	return snippets ? (
 		<div>
-			<div style={{ margin: 10 }}>
-				<div>
-					<Link to='/new-snippet'>
-						<button style={{ marginTop: 5 }}>
-							New project
-						</button>
-					</Link>
-				</div>
-			</div>
-
-			<br />
-
+			<Header />
 			<div>
 				{snippets?.map(snippet => (
 					<div key={snippet._id}>
-						<div>
-							<p>{`Name: ${snippet.title}` || "Snippet without name"}</p>
-							<p>{`Description: ${snippet.description}` || ""}</p>
-							<img src={`${process.env.PUBLIC_URL}/img/defaultProject.jpg`} alt='code'></img>
+						<div class="card">
 							<div>
-								<Link to={"/snippet/" + snippet._id}>
-									<button>Open project</button>
-								</Link>
+								<h5 class="card-title">{`Name: ${snippet.title}` || "Snippet without name"}</h5>
+								<p class="card-text">{`Description: ${snippet.description}` || ""}</p>
+								<img class="card-img-top" src={`${process.env.PUBLIC_URL}/img/defaultProject.jpg`} alt='code'></img>
+								<div>
+									<Link to={"/snippet/" + snippet._id}>
+										<button class="btn btn-primary">Open project</button>
+									</Link>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -46,5 +39,5 @@ const Snippets = ({ snippets }) => {
 	);
 };
 
-const ConnectedSnippets = connect(state => ({snippets: state?.promise?.findSnippet?.payload?.data?.SnippetFind,}))(Snippets);
+const ConnectedSnippets = connect(state => ({ snippets: state?.promise?.findSnippet?.payload?.data?.SnippetFind, }))(Snippets);
 export default ConnectedSnippets;

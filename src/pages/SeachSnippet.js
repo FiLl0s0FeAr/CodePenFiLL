@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 
 import { actGetSnipperById } from "store/actions/search/actGetSnipperById";
 import { Editor } from "components/Editor";
-import "../styles/Snippet.css";
+import Header from "../components/Header"
 
 const SeachSnippet = ({
 	getSnippet,
@@ -52,20 +51,16 @@ const SeachSnippet = ({
 	}, [html, css, javascript]);
 
 	return (
-		<div>
-			<div>
-				<Link to='/search'>
-					<button style={{ margin: 10, marginBottom: 50 }}>
-						Back to Search
-					</button>
-				</Link>
+		<>
+			<Header />
+			<div class="mb-3">
+				<label for="exampleFormControlInput1" class="form-label">Snippet name</label>
+				<input type="email" class="form-control" placeholder='Default Snippet Name' value={title} onChange={e => setTitle(e.target.value)} />
 			</div>
-			<div>
-				<p className='text'>Snippet name: </p>
-					<input className='input_snippet_name' placeholder='Set snippet Name' value={title} onChange={e => setTitle(e.target.value)}/>
-				</div>
-				<p className='text'>Description: </p>
-				<textarea className='textarea_snippet_description' placeholder='Description' value={description} onChange={e => setDescription(e.target.value)} style={{ marginBottom: 50 }}/>
+			<div class="mb-3">
+				<label for="exampleFormControlTextarea1" class="form-label">Description</label>
+				<textarea class="form-control" placeholder='Default Description' value={description} onChange={e => setDescription(e.target.value)} rows="1"></textarea>
+			</div>
 			<br />
 			{files?.map((data, index) => (
 				<>
@@ -92,7 +87,7 @@ const SeachSnippet = ({
 					/>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 
@@ -101,7 +96,7 @@ const ConnectedSearchSnippet = connect(
 		titleText: state?.promise?.findSnippetById?.payload?.data?.SnippetFind?.[0]?.title,
 		descriptionText: state?.promise?.findSnippetById?.payload?.data?.SnippetFind?.[0]?.description,
 		filesArr: state?.promise?.findSnippetById?.payload?.data?.SnippetFind?.[0]?.files,
-	}),	{ getSnippet: actGetSnipperById },)
+	}), { getSnippet: actGetSnipperById })
 	(SeachSnippet);
 
 export default ConnectedSearchSnippet;
